@@ -14,6 +14,7 @@
 
 //--- Preparation phase
 //Receive the interested element from DOM
+const form = document.querySelector("form");
 const button = document.getElementById("pay-btn");
 const distanceField = document.getElementById("distance");
 const ageField = document.getElementById("age");
@@ -33,6 +34,12 @@ button.addEventListener("click", function () {
   const distance = distanceField.value;
   const age = ageField.value;
 
+  //! Validation
+  if (age <= 0 || discount <= 0) {
+    alert("Insert numbers > 0");
+    form.reset();
+  }
+
   // Calcolate the final price
   let ticketPrice = (kmPrice * distance).toFixed(2);
   // Calcolate the discounts
@@ -44,13 +51,15 @@ button.addEventListener("click", function () {
     const discountMssg = `You have received a ${discount}% discount.`;
     console.log(discountMssg);
     //Calcolate the discount amount
-    const discountAmount = (ticketPrice / 100) * discount;
-    console.log(discountAmount);
+    const discountAmount = ((ticketPrice / 100) * discount).toFixed(2);
+    console.log(`Your discount amount is ${discountAmount} €`);
     //Calcolate the ticket price in discount conditions
     ticketPrice -= discountAmount;
     console.log(`${messagePrice} ${ticketPrice} €`);
+  } else {
+    // Print the ticket price
+    console.log(`${messagePrice} ${ticketPrice} €`);
   }
-
-  // Print the ticket price
-  console.log(`${messagePrice} ${ticketPrice} €`);
+  //Reset form
+  form.reset();
 });
