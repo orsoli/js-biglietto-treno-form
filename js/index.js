@@ -19,8 +19,32 @@ const distanceField = document.getElementById("distance");
 const ageField = document.getElementById("age");
 // Price per kilometer
 const kmPrice = 0.21;
-console.log(`Price per kilometer ${kmPrice} $/km`);
+console.log(`Price per kilometer ${kmPrice} €/km`);
 // Prices messages
 const messagePrice = "Your ticket price is:";
 // Possible discount
 let discount = null;
+
+//--- Collection phase
+//Receive the inputs values
+const distance = distanceField.value;
+const age = ageField.value;
+
+//--- Processing phase
+// Calcolate the final price
+let ticketPrice = (kmPrice * distance).toFixed(2);
+// Calcolate the discounts
+if (age < 18) discount = 20;
+else if (age > 65) discount = 40;
+
+if (discount) {
+  //Discount mssg
+  const discountMssg = `You have received a ${discount}% discount.`;
+  console.log(discountMssg);
+  //Calcolate the discount amount
+  const discountAmount = (ticketPrice / 100) * discount;
+  console.log(discountAmount);
+  //Calcolate the ticket price in discount conditions
+  ticketPrice -= discountAmount;
+  console.log(`${messagePrice} ${ticketPrice} €`);
+}
