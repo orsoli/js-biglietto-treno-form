@@ -14,10 +14,16 @@
 
 //--- Preparation phase
 //Receive the interested element from DOM
+//Form
 const form = document.querySelector("form");
 const button = document.getElementById("pay-btn");
 const distanceField = document.getElementById("distance");
 const ageField = document.getElementById("age");
+//Bill
+const resultPrice = document.getElementById("price");
+const resultDiscount = document.getElementById("discount");
+const resultInfo = document.getElementById("info");
+
 // Price per kilometer
 const kmPrice = 0.21;
 console.log(`Price per kilometer ${kmPrice} €/km`);
@@ -35,13 +41,14 @@ button.addEventListener("click", function () {
   const age = ageField.value;
 
   //! Validation
-  if (age <= 0 || discount <= 0) {
-    alert("Insert numbers > 0");
-    form.reset();
-  }
+  //   if (age <= 0 || discount <= 0) {
+  //     alert("Insert numbers > 0");
+  //     form.reset();
+  //   }
 
   // Calcolate the final price
   let ticketPrice = (kmPrice * distance).toFixed(2);
+  let standartPrice = ticketPrice;
   // Calcolate the discounts
   if (age < 18) discount = 20;
   else if (age > 65) discount = 40;
@@ -49,17 +56,33 @@ button.addEventListener("click", function () {
   if (discount) {
     //Discount mssg
     const discountMssg = `You have received a ${discount}% discount.`;
+    //Print discount mssg in page
+    resultInfo.innerHTML = `<strong>${discountMssg}</strong>`;
+    //Print discount mssg in consol
     console.log(discountMssg);
+
     //Calcolate the discount amount
     const discountAmount = ((ticketPrice / 100) * discount).toFixed(2);
+    //Print in consol
     console.log(`Your discount amount is ${discountAmount} €`);
+
     //Calcolate the ticket price in discount conditions
     ticketPrice -= discountAmount;
+    //Print ticket price in page
+    resultPrice.innerHTML = `${messagePrice} ${ticketPrice}€  <del class='text-danger-emphasis fst-italic'>${standartPrice}€</del>`;
+    //Print ticket price in consol
     console.log(`${messagePrice} ${ticketPrice} €`);
   } else {
-    // Print the ticket price
+    // Print the ticket price in page
+    resultPrice.innerHTML = `${messagePrice} <strong>${ticketPrice}$</strong>`;
+    // Print the ticket price in consol
     console.log(`${messagePrice} ${ticketPrice} €`);
   }
+  //Print info in Pge
+  resultInfo.innerText += `
+        Price per kilometer ${kmPrice}€/km.
+        Your destination is ${distance} KM from here.
+        `;
   //Reset form
   form.reset();
 });

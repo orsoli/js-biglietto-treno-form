@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="index-style.css">
 </head>
 <body>
-    <form class="container">
+    <form class="container w-50 mx-auto border rounded-3 py-3 mt-5 shadow ">
         <div class="mb-3">
           <label for="distance" class="form-label">Ditance</label>
           <input type="number" class="form-control" id="distance" placeholder="Insert distance of trip">
@@ -32,6 +32,16 @@
         </div>
         <button type="button" class="btn btn-primary" id="pay-btn">Print Ticket</button>
       </form>
+      <div class="card w-50 mx-auto mt-5 shadow">
+        <h2 class="card-header">Train Ticket</h2>
+        <div class="card-body">
+          <h5 class="card-title" id="price"></h5>
+          <h6 class="mt-5">Main Info</h6>
+          <p class="card-text" id="info"></p>
+          <h5 class="card-text text-danger-emphasis mt-3" id="discount"></h5>
+          <em class="card-text">ENJOY YOUR TRIP</em>
+        </div>
+      </div>
     <!-- Script  -->
     <script src="./js/index.js"></script>
 </body>
