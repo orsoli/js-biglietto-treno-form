@@ -21,25 +21,44 @@
     <link rel="stylesheet" href="index-style.css">
 </head>
 <body>
-    <form class="container w-50 mx-auto border rounded-3 py-3 mt-5 shadow ">
-        <div class="mb-3">
-          <label for="distance" class="form-label">Ditance</label>
-          <input type="number" class="form-control" id="distance" placeholder="Insert distance of trip">
-        </div>
-        <div class="mb-3">
-          <label for="age" class="form-label">Age</label>
-          <input type="number" class="form-control" id="age" placeholder="Insert your age">
+    <form class="form-control w-75 mx-auto border rounded-3 py-3 mt-5 shadow text-center">
+        <h2>Calculate the price of your ticket</h2>
+        <div class="d-flex justify-content-around">
+            <div class="mb-3 d-flex flex-column">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="" id="name" placeholder="Insert your name">
+            </div>
+            <div class="mb-3 d-flex flex-column">
+                <label for="distance" class="form-label">Ditance</label>
+                <input type="number" class="" id="distance" placeholder="Insert distance of trip">
+            </div>
+            <div class="mb-3 d-flex flex-column">
+                <label for="age" class="form-label">Age</label>
+                <select id="age">
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                    <option value="underage">Underage</option>
+                </select>
+            </div>
         </div>
         <button type="button" class="btn btn-primary" id="pay-btn">Print Ticket</button>
+        <button type="reset" class="btn btn-primary" id="pay-btn">Cancel</button>
       </form>
       <div class="card w-50 mx-auto mt-5 shadow">
-        <h2 class="card-header">Train Ticket</h2>
+        <h2 class="card-header">Your Ticket</h2>
         <div class="card-body">
-          <h5 class="card-title" id="price"></h5>
-          <h6 class="mt-5">Main Info</h6>
-          <p class="card-text" id="info"></p>
-          <h5 class="card-text text-danger-emphasis mt-3" id="discount"></h5>
-          <em class="card-text">ENJOY YOUR TRIP</em>
+            <h5 class="card-title" id="price"></h5>
+            <strong class="mt-5 text-decoration-underline">Main Info</strong>
+            <p class="card-text" id="info"></p>
+            <h5 class="card-text text-danger-emphasis mt-3" id="discount"></h5>
+            <hr>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-decoration-underline">Passenger details</h5>
+            <p><strong>Pssanger name:</strong></p>
+            <p><strong>Carraige:</strong></p>
+            <p><strong>Cp code:</strong></p>
+            <em class="card-text">ENJOY YOUR TRIP</em>
         </div>
       </div>
     <!-- Script  -->

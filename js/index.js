@@ -50,8 +50,8 @@ button.addEventListener("click", function () {
   let ticketPrice = (kmPrice * distance).toFixed(2);
   let standartPrice = ticketPrice;
   // Calcolate the discounts
-  if (age < 18) discount = 20;
-  else if (age > 65) discount = 40;
+  if (age == "underage") discount = 20;
+  else if (age == "senior") discount = 40;
 
   if (discount) {
     //Discount mssg
