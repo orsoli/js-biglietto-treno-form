@@ -48,8 +48,10 @@ button.addEventListener("click", function () {
   const age = ageField.value;
   const name = nameField.value.trim();
 
+  const isValid = !name || !isNaN(name) || distance <= 0;
+
   //! Validation
-  if (!name || !isNaN(name) || distance <= 0) {
+  if (isValid) {
     resultError.innerHTML = errorMssg;
   } else {
     // Calcolate the final price
