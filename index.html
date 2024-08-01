@@ -26,11 +26,11 @@
         <div class="d-flex justify-content-around">
             <div class="mb-3 d-flex flex-column">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="" id="name" placeholder="Insert your name">
+                <input type="text"  id="name" placeholder="Insert your name" required>
             </div>
             <div class="mb-3 d-flex flex-column">
                 <label for="distance" class="form-label">Ditance</label>
-                <input type="number" class="" id="distance" placeholder="Insert distance of trip">
+                <input type="number"  id="distance" placeholder="Insert distance of trip" required>
             </div>
             <div class="mb-3 d-flex flex-column">
                 <label for="age" class="form-label">Age</label>
@@ -43,8 +43,8 @@
         </div>
         <button type="button" class="btn btn-primary" id="pay-btn">Print Ticket</button>
         <button type="reset" class="btn btn-primary" id="pay-btn">Cancel</button>
-      </form>
-      <div class="card w-50 mx-auto mt-5 shadow">
+    </form>
+    <div class="card w-50 mx-auto mt-5 shadow" id="ticket-container">
         <h2 class="card-header">Your Ticket</h2>
         <div class="card-body">
             <h5 class="card-title" id="price"></h5>
@@ -60,7 +60,7 @@
             <p id="cp-code"><strong>Cp code: </strong></p>
             <em class="card-text">ENJOY YOUR TRIP</em>
         </div>
-      </div>
+    </div>
     <!-- Script  -->
     <script src="./js/index.js"></script>
 </body>
