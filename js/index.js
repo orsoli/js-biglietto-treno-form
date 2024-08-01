@@ -23,6 +23,11 @@ const ageField = document.getElementById("age");
 const resultPrice = document.getElementById("price");
 const resultDiscount = document.getElementById("discount");
 const resultInfo = document.getElementById("info");
+//---Bonus
+const nameField = document.getElementById("name");
+const resultpassengerName = document.getElementById("passenger-name");
+const resultCarraige = document.getElementById("carraige");
+const resultCpCode = document.getElementById("cp-code");
 
 // Price per kilometer
 const kmPrice = 0.21;
@@ -39,6 +44,7 @@ button.addEventListener("click", function () {
   //Receive the inputs values
   const distance = distanceField.value;
   const age = ageField.value;
+  const name = nameField.value;
 
   //! Validation
   //   if (age <= 0 || discount <= 0) {
@@ -77,12 +83,35 @@ button.addEventListener("click", function () {
     resultPrice.innerHTML = `${messagePrice} <strong>${ticketPrice}$</strong>`;
     // Print the ticket price in consol
     console.log(`${messagePrice} ${ticketPrice} €`);
+    //Print discount mssg in page
+    resultInfo.innerHTML = `Standart Ticket`;
   }
   //Print info in Pge
   resultInfo.innerText += `
         Price per kilometer ${kmPrice}€/km.
         Your destination is ${distance} KM from here.
         `;
+
+  //--Bonus
+  //Create max rendom numbers
+  const maxCarraige = 20;
+  const maxCpcode = 100000;
+  //--Generating numbers
+  // Carraige number
+  const carraigeNumber = Math.floor(Math.random() * maxCarraige) + 1;
+  console.log(carraigeNumber);
+  // Cp code number
+  const cpCode = Math.floor(Math.random() * maxCpcode) + 1;
+  console.log(cpCode);
+
+  //--Processing
+  // Print the passenger name on page
+  resultpassengerName.innerHTML += name;
+  // Print carraige nr  on page
+  resultCarraige.innerHTML += `<em>${carraigeNumber}</em>`;
+  // Print Cp code on page
+  resultCpCode.innerHTML += `<em>${cpCode}</em>`;
+
   //Reset form
   form.reset();
 });
