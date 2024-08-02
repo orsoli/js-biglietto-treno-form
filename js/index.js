@@ -45,7 +45,7 @@ button.addEventListener("click", function () {
   //--- Collection phase
   //Receive the inputs values
   const distance = distanceField.value;
-  const age = ageField.value;
+  const age = parseInt(ageField.value);
   const name = nameField.value.trim();
 
   const isValid = !name || !isNaN(name) || distance <= 0;
