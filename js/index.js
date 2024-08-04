@@ -117,3 +117,37 @@ button.addEventListener("click", function () {
   //Reset form
   form.reset();
 });
+
+//? Extension exercise
+// Add e switch mode. Dark mode and Day mode
+
+//---  Praparation phase
+// Retrieve the element interested in Dom
+const wrapperElement = document.querySelector(".wrapper");
+const darkModeBtn = document.getElementById("dark-mode-btn");
+// Create events
+let switchMode = new Event("click");
+// A flag using to change the innertext button
+let isDarkMode;
+// Create functions
+function handleSwitcheMode() {
+  if (isDarkMode) {
+    // Inner text
+    darkModeBtn.innerText = "Day Mode";
+    // Change flag value
+    isDarkMode = false;
+  } else {
+    // Inner text
+    darkModeBtn.innerText = "Dark Mode";
+    // Change flag valu
+    isDarkMode = true;
+  }
+  // Change Background body
+  wrapperElement.classList.toggle("bg-dark");
+  // Change the button border color
+  darkModeBtn.classList.toggle("btn-outline-dark");
+  darkModeBtn.classList.toggle("btn-outline-light");
+}
+// Procesing phase
+// Add event Listener
+darkModeBtn.addEventListener("click", handleSwitcheMode);
